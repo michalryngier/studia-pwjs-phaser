@@ -27,12 +27,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53577fc7-14c4-4587-a395-249c5b8db0b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/rollup.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameObjects/Platform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameObjects/PlatformGroup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameObjects/PlatformPool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameObjects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/LoadingScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LoadingScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +54,14 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1kgvpxKui4QqBdeBag4525hhRiJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,6 +74,11 @@
     <property name="ts.external.directory.path" value="D:\Programming\studia\games\phaser3-boilerplate\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\studia\games\phaser3-boilerplate\src\assets\images" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,6 +89,10 @@
       <updated>1606135235816</updated>
       <workItem from="1606135237388" duration="312000" />
       <workItem from="1606135996034" duration="2247000" />
+      <workItem from="1606138439666" duration="250000" />
+      <workItem from="1606299455472" duration="627000" />
+      <workItem from="1606739776927" duration="116000" />
+      <workItem from="1608476911505" duration="19424000" />
     </task>
     <servers />
   </component>
@@ -94,6 +124,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606138538979">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138538979" />
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1606302735687">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="172" key="FileChooserDialogImpl/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606302735687" />
     <state width="1515" height="214" key="GridCell.Tab.0.bottom" timestamp="1606138407143">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -110,5 +148,13 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="214" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138407143" />
+    <state x="479" y="121" width="578" height="592" key="find.popup" timestamp="1608480427368">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="479" y="121" width="578" height="592" key="find.popup/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608480427368" />
+    <state x="425" y="189" width="672" height="677" key="run.anything.popup" timestamp="1608495985581">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" width="672" height="677" key="run.anything.popup/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608495985581" />
   </component>
 </project>

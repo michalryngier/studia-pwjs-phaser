@@ -48,6 +48,12 @@ window.onload = () => {
             autoRound: true,
             mode: Phaser.Scale.ScaleModes.NONE,
             autoCenter: Phaser.Scale.CENTER_BOTH
-        }
+        },
+        physics: {
+            default: 'arcade',
+            arcade: {
+                debug: false
+            }
+        },
     });
 }
