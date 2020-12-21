@@ -10,13 +10,15 @@ export default class GameScene extends Phaser.Scene {
         // global game options
         this.gameOptions = {
             platformStartSpeed: 350,
-            spawnRange: [100, 350],
-            platformSizeRange: [50, 250],
+            spawnRange: [150, 400],
+            platformSizeRange: [100, 300],
             playerGravity: 900,
             jumpForce: 400,
             playerStartPosition: 400,
             jumps: 2
         }
+        this.timePlayed = 1;
+        this.multiplier = 1;
     }
 
     create() {
@@ -28,9 +30,6 @@ export default class GameScene extends Phaser.Scene {
 
         // pool
         this.platformPool = new PlatformPool(this);
-
-        // number of consecutive jumps made by the player
-        this.playerJumps = 0;
 
         // adding a platform to the game, the arguments are platform width and x position
         this.platformPool.addPlatform(this.game.config.width, this.game.config.width / 2);
@@ -46,14 +45,24 @@ export default class GameScene extends Phaser.Scene {
 
         // setting collisions between the player and the platform group
         this.physics.add.collider(this.player, this.platformGroup);
+
+        // reset and set time counter
+        this.reset = true;
+        setTimeout(() => {
+            this.reset = false;
+            this.counter();
+        }, 1000)
     }
 
     update() {
         // game over
         if (this.player.y > this.game.config.height) {
+            this.timePlayed = 1;
+            this.multiplier = 1;
             this.scene.start("GameScene");
         }
         this.player.x = this.gameOptions.playerStartPosition;
+        this.player.setGravityY(this.gameOptions.playerGravity * this.multiplier);
 
         // recycling platforms
         let minDistance = this.game.config.width;
@@ -75,5 +84,20 @@ export default class GameScene extends Phaser.Scene {
             this.platformPool.addPlatform(nextPlatformWidth, this.game.config.width + nextPlatformWidth / 2);
         }
         this.player.tryJump();
+    }
+
+    counter() {
+        if (this.reset === false) {
+            setTimeout(() => {
+                this.multiplier = this.timePlayed <= 15
+                  ? 1
+                  : (Math.log2((this.timePlayed - 15) / 100 + 2)  <= 2.5
+                    ? Math.log2((this.timePlayed - 15) / 100 + 2)
+                    : 2.5);
+
+                this.timePlayed++;
+                this.counter();
+            }, 1000);
+        }
     }
 }

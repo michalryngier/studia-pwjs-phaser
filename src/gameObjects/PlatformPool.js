@@ -14,6 +14,8 @@ export default class PlatformPool extends Phaser.GameObjects.Group  {
   // the core of the script: platform are added from the pool or created on the fly
   addPlatform(platformWidth, posX) {
     let platform;
+    // console.log("logarithm x: ", (this.game.timePlayed - 15) / 10 + 2);
+    // console.log("time played:", this.game.timePlayed, "multiplier:", this.game.multiplier);
     if (this.getLength()) {
       platform = this.getFirst();
       platform.x = posX;
@@ -22,10 +24,10 @@ export default class PlatformPool extends Phaser.GameObjects.Group  {
       this.remove(platform);
     } else {
       platform = new Platform(this.game, posX, this.game.game.config.height * 0.8, "platform");
-      platform.setVelocityX(this.game.gameOptions.platformStartSpeed * -1);
+      platform.setVelocityX(this.game.multiplier * this.game.gameOptions.platformStartSpeed * -1);
       this.game.platformGroup.add(platform);
     }
-    platform.displayWidth = platformWidth;
+    platform.displayWidth = platformWidth * (this.game.multiplier / 10 + 1);
     this.game.nextPlatformDistance = Phaser.Math.Between(
       this.game.gameOptions.spawnRange[0],
       this.game.gameOptions.spawnRange[1]
