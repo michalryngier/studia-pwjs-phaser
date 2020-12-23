@@ -3,6 +3,7 @@ import Player from '../gameObjects/Player'
 import PlatformGroup from "../gameObjects/PlatformGroup";
 import PlatformPool from "../gameObjects/PlatformPool";
 import highScoreService from '../services/HighScoreService';
+import TextHelper from "../helpers/TextHelper";
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -49,23 +50,17 @@ export default class GameScene extends Phaser.Scene {
         // setting collisions between the player and the platform group
         this.physics.add.collider(this.player, this.platformGroup);
 
-        const screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
-        const screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 4;
-        this.scoreText = this.add.bitmapText(
-          screenCenterX,
-          screenCenterY,
-          'TempestApacheOutlineBlue',
-          '',
-          100
-        ).setOrigin(0.5);
+        // SCORE TEXT
+        this.scoreIndicator();
 
-        // reset and set time counter
-        this.reset = true;
-        this.setScore(0);
-        setTimeout(() => {
-            this.reset = false;
-            this.counter();
-        }, 1000)
+        // END GAME TEXT
+        this.newHighScore();
+        this.notHighScore();
+        this.pauseButton();
+
+        this.events.on('resume', () => {
+            this.pauseButtonText.setVisible(true);
+        })
     }
 
     update() {
@@ -98,46 +93,129 @@ export default class GameScene extends Phaser.Scene {
                 this.platformPool.addPlatform(nextPlatformWidth, this.game.config.width + nextPlatformWidth / 2);
             }
             this.player.tryJump();
+
+            this.extraScore++;
+            if (this.extraScore % 60 === 0) {
+                this.multiplier = this.timePlayed <= 15
+                  ? 1
+                  : (Math.log2((this.timePlayed - 15) / 100 + 2)  <= 2.5
+                    ? Math.log2((this.timePlayed - 15) / 100 + 2)
+                    : 2.5);
+                this.timePlayed++;
+            }
+            this.score = Math.floor(this.multiplier * this.timePlayed * 100) + this.extraScore;
+            this.setScore(this.score);
         }
     }
 
-    counter() {
-        if (this.reset === false && this.player.alive) {
-            setTimeout(() => {
-                this.extraScore++;
-                if (this.extraScore % 100 === 0) {
-                    this.multiplier = this.timePlayed <= 15
-                      ? 1
-                      : (Math.log2((this.timePlayed - 15) / 100 + 2)  <= 2.5
-                        ? Math.log2((this.timePlayed - 15) / 100 + 2)
-                        : 2.5);
+    // TEXT AND BUTTONS
 
-                    this.timePlayed++;
-                }
-                this.score = Math.floor(this.multiplier * this.timePlayed * 100) + this.extraScore;
-                this.setScore(this.score);
-                this.counter();
-            }, 10);
-        }
+    scoreIndicator() {
+        this.scoreText = TextHelper.createText(
+          this,
+          'TempestApacheOutlineBlue',
+          '',
+          100,
+          true,
+          0,
+          -200
+        ).setOrigin(0.5);
     }
 
-    setScore(score) {
-        this.scoreText.setText(score);
+    newHighScore() {
+        this.newHighScoreText = TextHelper.createText(
+          this,
+          'TempestApacheRegularBlack',
+          'New High Score!',
+          72,
+          true,
+          0,
+          -100
+        ).setOrigin(0.5)
+          .setVisible(false);
     }
+
+    notHighScore() {
+        this.notHighScoreText = TextHelper.createText(
+          this,
+          'TempestApacheRegularBlack',
+          'Almost there!',
+          72,
+          true,
+          0,
+          -100
+        ).setOrigin(0.5)
+          .setVisible(false);
+
+        this.toHighScoreText = TextHelper.createText(
+          this,
+          'TempestApacheRegularBlack',
+          '',
+          40,
+          true,
+          0,
+          -50
+        ).setOrigin(0.5)
+          .setVisible(false);
+    }
+
+    pauseButton() {
+        this.pauseButtonText = TextHelper.createText(
+          this,
+          "TempestApache3D",
+          "| |",
+          72,
+          false,
+          this.game.config.width - 100,
+          50
+        )
+          .setInteractive()
+          .on('pointerover', () => {
+              this.pauseButtonText.setFont('TempestApache3DRed');
+              document.getElementsByTagName("body")[0].style.cursor = "pointer";
+          })
+          .on('pointerout', () => {
+              this.pauseButtonText.setFont('TempestApache3D');
+              document.getElementsByTagName("body")[0].style.cursor = "default";
+          })
+          .on('pointerup', () => {
+              document.getElementsByTagName("body")[0].style.cursor = "default";
+              this.pauseButtonText.setVisible(false);
+              this.scene.launch('PauseGameScene');
+              this.scene.pause();
+          });
+    }
+
+    // GAME OVER, SCORE, AND RESET
 
     gameOver() {
         this.player.alive = false;
         let isHighScore = highScoreService.checkHighScore(this.score);
+        // SHOW END GAME TEXT DEPENDING ON PLAYER SCORE
         if (isHighScore) {
             this.scoreText.setFont('TempestApache3DGold', 140);
+            this.newHighScoreText.setVisible(true);
         } else {
             this.scoreText.setFont('TempestApache3DRed', 140);
-
+            this.notHighScoreText.setVisible(true);
+            this.toHighScoreText.setText(
+              `get ${highScoreService.getHighScore() - this.score + 1} more for a new high score`
+            )
+            this.toHighScoreText.setVisible(true);
         }
-        // this.timePlayed = 1;
-        // this.multiplier = 1;
-        // this.score = 0;
-        // this.extraScore = 0;
-        // this.scene.start("GameScene");
+        this.pauseButtonText.setVisible(false);
+        this.game.scene.start('PauseGameScene');
+    }
+
+    resetScene() {
+        this.nextPlatformDistance = 0;
+        this.timePlayed = 1;
+        this.multiplier = 1;
+        this.score = 0;
+        this.extraScore = 0;
+    }
+
+    setScore(score) {
+        this.scoreText.setText(score);
     }
 }

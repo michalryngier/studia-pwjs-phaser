@@ -47,11 +47,32 @@ export default class LoadingScene extends Phaser.Scene
           './assets/fonts/outline-shadow-blue/font.fnt'
         );
 
-        // Gradial with blue shadow
+        // Outline with gold shadow
+        this.load.bitmapFont(
+          'TempestApacheOutlineGold',
+          './assets/fonts/outline-shadow-gold/font.png',
+          './assets/fonts/outline-shadow-gold/font.fnt'
+        );
+
+        // Gradual with blue shadow
         this.load.bitmapFont(
           'TempestApacheGradualBlue',
           './assets/fonts/gradual-shadow-blue/font.png',
           './assets/fonts/gradual-shadow-blue/font.fnt'
+        );
+
+        // Regular with black shadow
+        this.load.bitmapFont(
+          'TempestApacheRegularBlack',
+          './assets/fonts/regular-shadow-black/font.png',
+          './assets/fonts/regular-shadow-black/font.fnt'
+        );
+
+        // Regular with blue shadow
+        this.load.bitmapFont(
+          'TempestApacheRegularBlue',
+          './assets/fonts/regular-shadow-blue/font.png',
+          './assets/fonts/regular-shadow-blue/font.fnt'
         );
 
         /*
