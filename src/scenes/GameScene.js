@@ -1,8 +1,8 @@
 import 'phaser';
-import Platform from '../gameObjects/Platform'
 import Player from '../gameObjects/Player'
 import PlatformGroup from "../gameObjects/PlatformGroup";
 import PlatformPool from "../gameObjects/PlatformPool";
+import highScoreService from '../services/HighScoreService';
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -17,6 +17,7 @@ export default class GameScene extends Phaser.Scene {
             playerStartPosition: 400,
             jumps: 2
         }
+        this.nextPlatformDistance = 0;
         this.score = 0;
         this.timePlayed = 1;
         this.multiplier = 1;
@@ -50,10 +51,13 @@ export default class GameScene extends Phaser.Scene {
 
         const screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
         const screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 4;
-        this.scoreText = this.add.text(screenCenterX, screenCenterY, '0', {
-            fontFamily: 'tempestOutline',
-            fontSize: '100px'
-        }).setOrigin(0.5);
+        this.scoreText = this.add.bitmapText(
+          screenCenterX,
+          screenCenterY,
+          'TempestApacheOutlineBlue',
+          '',
+          100
+        ).setOrigin(0.5);
 
         // reset and set time counter
         this.reset = true;
@@ -65,19 +69,16 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update() {
-        // game over
-        if (this.player.y > this.game.config.height) {
-            this.timePlayed = 1;
-            this.multiplier = 1;
-            this.score = 0;
-            this.extraScore = 0;
-            this.scene.start("GameScene");
-        }
-        this.player.x = this.gameOptions.playerStartPosition;
-        this.player.setGravityY(this.gameOptions.playerGravity * this.multiplier);
-
-        // recycling platforms
         if (this.player.alive) {
+            // game over
+            if (this.player.y > this.game.config.height) {
+                this.gameOver();
+            }
+            this.player.x = this.gameOptions.playerStartPosition;
+            this.player.setGravityY(this.gameOptions.playerGravity * this.multiplier);
+
+            // recycling platforms
+
             let minDistance = this.game.config.width;
             this.platformGroup.getChildren().forEach(function(platform){
                 let platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
@@ -96,8 +97,8 @@ export default class GameScene extends Phaser.Scene {
                 );
                 this.platformPool.addPlatform(nextPlatformWidth, this.game.config.width + nextPlatformWidth / 2);
             }
+            this.player.tryJump();
         }
-        this.player.tryJump();
     }
 
     counter() {
@@ -122,5 +123,21 @@ export default class GameScene extends Phaser.Scene {
 
     setScore(score) {
         this.scoreText.setText(score);
+    }
+
+    gameOver() {
+        this.player.alive = false;
+        let isHighScore = highScoreService.checkHighScore(this.score);
+        if (isHighScore) {
+            this.scoreText.setFont('TempestApache3DGold', 140);
+        } else {
+            this.scoreText.setFont('TempestApache3DRed', 140);
+
+        }
+        // this.timePlayed = 1;
+        // this.multiplier = 1;
+        // this.score = 0;
+        // this.extraScore = 0;
+        // this.scene.start("GameScene");
     }
 }

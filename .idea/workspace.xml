@@ -27,15 +27,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53577fc7-14c4-4587-a395-249c5b8db0b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApache-a3OJ.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApache3D-EnYg.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApacheOutline-ydnd.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApacheTitle-1g80.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/HighScoreService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameObjects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameObjects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/TempestApache-a3OJ.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/TempestApache3D-EnYg.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/TempestApacheOutline-ydnd.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/TempestApacheTitle-1g80.otf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/BootScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/BootScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/LoadingScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LoadingScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +77,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\studia\games\phaser3-boilerplate\src\assets\fonts\3d-without-shadow" />
       <recent name="D:\Programming\studia\games\phaser3-boilerplate\src\assets\images" />
     </key>
   </component>
@@ -96,7 +97,7 @@
       <workItem from="1608476911505" duration="19681000" />
       <workItem from="1608546670802" duration="6051000" />
       <workItem from="1608576318750" duration="480000" />
-      <workItem from="1608709219108" duration="4416000" />
+      <workItem from="1608709219108" duration="16478000" />
     </task>
     <task id="LOCAL-00001" summary="feat: gameplay skeleton">
       <created>1608496954210</created>
@@ -112,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608552739884</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: score">
+      <created>1608713658443</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608713658444</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,13 +153,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: gameplay skeleton" />
     <MESSAGE value="feat: gameplay balance" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: gameplay balance" />
+    <MESSAGE value="feat: score" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: score" />
   </component>
   <component name="WindowStateProjectService">
     <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606138538979">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138538979" />
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608721659190">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608721659190" />
     <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1608546707687">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -176,14 +189,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608552743356" />
-    <state x="479" y="121" width="578" height="592" key="find.popup" timestamp="1608480427368">
+    <state x="479" y="121" width="578" height="592" key="find.popup" timestamp="1608719870544">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="479" y="121" width="578" height="592" key="find.popup/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608480427368" />
-    <state x="425" y="189" width="672" height="677" key="run.anything.popup" timestamp="1608495985581">
+    <state x="479" y="121" width="578" height="592" key="find.popup/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608719870544" />
+    <state x="425" y="189" width="672" height="677" key="run.anything.popup" timestamp="1608718506030">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" width="672" height="677" key="run.anything.popup/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608495985581" />
+    <state x="425" y="189" width="672" height="677" key="run.anything.popup/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608718506030" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1608551938657">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
