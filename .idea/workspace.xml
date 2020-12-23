@@ -27,8 +27,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53577fc7-14c4-4587-a395-249c5b8db0b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApache-a3OJ.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApache3D-EnYg.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApacheOutline-ydnd.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/TempestApacheTitle-1g80.otf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameObjects/PlatformPool.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameObjects/PlatformPool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameObjects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameObjects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/BootScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/BootScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +70,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="//wsl$/Ubuntu/home/michal/workspace/holidays-ho-managment-app-front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\Programming\studia\games\phaser3-boilerplate\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -88,7 +94,9 @@
       <workItem from="1606299455472" duration="627000" />
       <workItem from="1606739776927" duration="116000" />
       <workItem from="1608476911505" duration="19681000" />
-      <workItem from="1608546670802" duration="6012000" />
+      <workItem from="1608546670802" duration="6051000" />
+      <workItem from="1608576318750" duration="480000" />
+      <workItem from="1608709219108" duration="4416000" />
     </task>
     <task id="LOCAL-00001" summary="feat: gameplay skeleton">
       <created>1608496954210</created>
@@ -97,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608496954210</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: gameplay balance">
+      <created>1608552739884</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608552739884</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,7 +144,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: gameplay skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: gameplay skeleton" />
+    <MESSAGE value="feat: gameplay balance" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: gameplay balance" />
   </component>
   <component name="WindowStateProjectService">
     <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606138538979">
@@ -156,10 +172,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="214" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138407143" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1608496956887">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1608552743356">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608496956887" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608552743356" />
     <state x="479" y="121" width="578" height="592" key="find.popup" timestamp="1608480427368">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

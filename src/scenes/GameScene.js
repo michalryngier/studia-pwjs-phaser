@@ -17,8 +17,10 @@ export default class GameScene extends Phaser.Scene {
             playerStartPosition: 400,
             jumps: 2
         }
+        this.score = 0;
         this.timePlayed = 1;
         this.multiplier = 1;
+        this.extraScore = 0;
     }
 
     create() {
@@ -46,8 +48,16 @@ export default class GameScene extends Phaser.Scene {
         // setting collisions between the player and the platform group
         this.physics.add.collider(this.player, this.platformGroup);
 
+        const screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
+        const screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 4;
+        this.scoreText = this.add.text(screenCenterX, screenCenterY, '0', {
+            fontFamily: 'tempestOutline',
+            fontSize: '100px'
+        }).setOrigin(0.5);
+
         // reset and set time counter
         this.reset = true;
+        this.setScore(0);
         setTimeout(() => {
             this.reset = false;
             this.counter();
@@ -59,45 +69,58 @@ export default class GameScene extends Phaser.Scene {
         if (this.player.y > this.game.config.height) {
             this.timePlayed = 1;
             this.multiplier = 1;
+            this.score = 0;
+            this.extraScore = 0;
             this.scene.start("GameScene");
         }
         this.player.x = this.gameOptions.playerStartPosition;
         this.player.setGravityY(this.gameOptions.playerGravity * this.multiplier);
 
         // recycling platforms
-        let minDistance = this.game.config.width;
-        this.platformGroup.getChildren().forEach(function(platform){
-            let platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
-            minDistance = Math.min(minDistance, platformDistance);
-            if (platform.x < - platform.displayWidth / 2) {
-                this.platformGroup.killAndHide(platform);
-                this.platformGroup.remove(platform);
-            }
-        }, this);
+        if (this.player.alive) {
+            let minDistance = this.game.config.width;
+            this.platformGroup.getChildren().forEach(function(platform){
+                let platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
+                minDistance = Math.min(minDistance, platformDistance);
+                if (platform.x < - platform.displayWidth / 2) {
+                    this.platformGroup.killAndHide(platform);
+                    this.platformGroup.remove(platform);
+                }
+            }, this);
 
-        // adding new platforms
-        if (minDistance > this.nextPlatformDistance) {
-            let nextPlatformWidth = Phaser.Math.Between(
-              this.gameOptions.platformSizeRange[0],
-              this.gameOptions.platformSizeRange[1]
-            );
-            this.platformPool.addPlatform(nextPlatformWidth, this.game.config.width + nextPlatformWidth / 2);
+            // adding new platforms
+            if (minDistance > this.nextPlatformDistance) {
+                let nextPlatformWidth = Phaser.Math.Between(
+                  this.gameOptions.platformSizeRange[0],
+                  this.gameOptions.platformSizeRange[1]
+                );
+                this.platformPool.addPlatform(nextPlatformWidth, this.game.config.width + nextPlatformWidth / 2);
+            }
         }
         this.player.tryJump();
     }
 
     counter() {
-        if (this.reset === false) {
+        if (this.reset === false && this.player.alive) {
             setTimeout(() => {
-                this.multiplier = this.timePlayed <= 15
-                  ? 1
-                  : (Math.log2((this.timePlayed - 15) / 100 + 2)  <= 2.5
-                    ? Math.log2((this.timePlayed - 15) / 100 + 2)
-                    : 2.5);
+                this.extraScore++;
+                if (this.extraScore % 100 === 0) {
+                    this.multiplier = this.timePlayed <= 15
+                      ? 1
+                      : (Math.log2((this.timePlayed - 15) / 100 + 2)  <= 2.5
+                        ? Math.log2((this.timePlayed - 15) / 100 + 2)
+                        : 2.5);
 
-                this.timePlayed++;
+                    this.timePlayed++;
+                }
+                this.score = Math.floor(this.multiplier * this.timePlayed * 100) + this.extraScore;
+                this.setScore(this.score);
                 this.counter();
-            }, 1000);
+            }, 10);
         }
+    }
+
+    setScore(score) {
+        this.scoreText.setText(score);
     }
 }

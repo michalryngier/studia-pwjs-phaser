@@ -6,6 +6,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.setGravityY(1000);
     this.game = scene;
     this.playerJumps = 0;
+    this.alive = true;
   }
 
   setGravityY(value){
