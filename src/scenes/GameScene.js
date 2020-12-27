@@ -4,6 +4,8 @@ import PlatformGroup from "../gameObjects/PlatformGroup";
 import PlatformPool from "../gameObjects/PlatformPool";
 import highScoreService from '../services/HighScoreService';
 import TextHelper from "../helpers/TextHelper";
+import PowerObjectService from "../services/PowerObjectService";
+import PowerObjectPool from "../gameObjects/PowerObjectPool";
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -16,7 +18,8 @@ export default class GameScene extends Phaser.Scene {
             playerGravity: 900,
             jumpForce: 400,
             playerStartPosition: 400,
-            jumps: 2
+            jumps: 2,
+            powerLifetime: 7
         }
         this.nextPlatformDistance = 0;
         this.score = 0;
@@ -46,9 +49,23 @@ export default class GameScene extends Phaser.Scene {
           'player'
         );
         this.player.setGravityY(this.gameOptions.playerGravity);
+        this.player.tryJump();
 
         // setting collisions between the player and the platform group
         this.physics.add.collider(this.player, this.platformGroup);
+
+        // power objects
+        this.powerObjectPool = new PowerObjectPool(this);
+        this.powerObjectService = new PowerObjectService(this);
+        this.physics.add.overlap(
+          this.player,
+          this.powerObjectPool,
+          (player, power) => {
+              this.powerObjectService.addPower(player, power);
+          },
+          null,
+          this
+        );
 
         // SCORE TEXT
         this.scoreIndicator();
@@ -65,15 +82,24 @@ export default class GameScene extends Phaser.Scene {
 
     update() {
         if (this.player.alive) {
+            this.powerObjectService.spawnPowerObject();
+            this.player.checkPowerLifetime();
             // game over
             if (this.player.y > this.game.config.height) {
                 this.gameOver();
             }
             this.player.x = this.gameOptions.playerStartPosition;
-            this.player.setGravityY(this.gameOptions.playerGravity * this.multiplier);
+            if (this.player.powers.lowerGravity.active) {
+                this.player.setGravityY(
+                this.player.powers.lowerGravity.gravityMultiplier
+                 * this.gameOptions.playerGravity
+                 * this.multiplier
+                );
+            } else {
+                this.player.setGravityY(this.gameOptions.playerGravity * this.multiplier);
+            }
 
             // recycling platforms
-
             let minDistance = this.game.config.width;
             this.platformGroup.getChildren().forEach(function(platform){
                 let platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
@@ -92,7 +118,6 @@ export default class GameScene extends Phaser.Scene {
                 );
                 this.platformPool.addPlatform(nextPlatformWidth, this.game.config.width + nextPlatformWidth / 2);
             }
-            this.player.tryJump();
 
             this.extraScore++;
             if (this.extraScore % 60 === 0) {
