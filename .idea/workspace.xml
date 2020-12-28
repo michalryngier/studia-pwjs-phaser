@@ -27,26 +27,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53577fc7-14c4-4587-a395-249c5b8db0b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/Stardust.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/alert1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/alert2.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/collect.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/dead.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/fly.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/mp3/jump.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/ogg/alert2.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/lowerGravityIndicator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/tripleJumpIndicator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/credits" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/PowersScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameObjects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameObjects/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/LoadingScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LoadingScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/MenuScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenuScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/SplashScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/SplashScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PowerObjectService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PowerObjectService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/PowersScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/PowersScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +95,7 @@
       <workItem from="1608576318750" duration="480000" />
       <workItem from="1608709219108" duration="34977000" />
       <workItem from="1609072685191" duration="21364000" />
-      <workItem from="1609150470634" duration="11468000" />
+      <workItem from="1609150470634" duration="14174000" />
     </task>
     <task id="LOCAL-00001" summary="feat: gameplay skeleton">
       <created>1608496954210</created>
@@ -154,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609099249690</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: powers time indicators">
+      <created>1609162129955</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609162129955</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,13 +183,14 @@
     <MESSAGE value="feat: score fonts" />
     <MESSAGE value="feat: pause, new fonts, restart, menu" />
     <MESSAGE value="feat: super powers" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: super powers" />
+    <MESSAGE value="feat: powers time indicators" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: powers time indicators" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609152020140">
+    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609164384934">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609152020140" />
+    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609164384934" />
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608721659190">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -222,10 +215,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="214" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138407143" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609099251806">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609162132079">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609099251806" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609162132079" />
     <state x="614" y="160" width="578" height="592" key="find.popup" timestamp="1609093996086">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

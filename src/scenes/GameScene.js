@@ -85,6 +85,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.events.on('resume', () => {
             this.pauseButtonText.setVisible(true);
+            this.scene.launch('PowersScene', { game: this });
         })
 
         this.scene.launch('PowersScene', { game: this });
@@ -217,12 +218,13 @@ export default class GameScene extends Phaser.Scene {
           .on('pointerup', () => {
               document.getElementsByTagName("body")[0].style.cursor = "default";
               this.pauseButtonText.setVisible(false);
+              this.scene.stop('PowersScene');
               this.scene.launch('PauseGameScene');
               this.scene.pause();
           });
     }
 
-    // GAME OVER, SCORE, AND RESET
+    // GAME OVER, SCORE, CAMERA SHAKE AND RESET
 
     gameOver() {
         this.player.alive = false;
@@ -240,6 +242,7 @@ export default class GameScene extends Phaser.Scene {
             this.toHighScoreText.setVisible(true);
         }
         this.cameraShake();
+        this.scene.stop('PowersScene');
         this.deadSound.play();
         this.pauseButtonText.setVisible(false);
         this.game.scene.start('PauseGameScene');

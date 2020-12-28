@@ -16,7 +16,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       lowerGravity: {
         active: false,
         activationTime: 0,
-        gravityMultiplier: 0.25
+        gravityMultiplier: 0.75
       }
     }
   }

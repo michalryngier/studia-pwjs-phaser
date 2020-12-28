@@ -47,12 +47,31 @@ export default class PowersScene extends Phaser.Scene {
   }
 
   update() {
+    // set indicators positions
+    if (this.gameData.player.powers.tripleJump.active && this.gameData.player.powers.lowerGravity.active === false) {
+      this.tripleJumpIndicator.x = TextHelper.screenCenter(this).x;
+      this.tripleJumpText.setX(TextHelper.screenCenter(this).x);
+    } else if (
+      this.gameData.player.powers.lowerGravity.active && this.gameData.player.powers.tripleJump.active === false
+    ) {
+      this.lowerGravityIndicator.x = TextHelper.screenCenter(this).x;
+      this.lowerGravityText.setX(TextHelper.screenCenter(this).x);
+    } else {
+      this.lowerGravityIndicator.x = TextHelper.screenCenter(this).x - 50;
+      this.lowerGravityText.setX(TextHelper.screenCenter(this).x - 50) ;
+      this.tripleJumpIndicator.x = TextHelper.screenCenter(this).x + 50;
+      this.tripleJumpText.setX(TextHelper.screenCenter(this).x + 50);
+    }
+
+    // turn visibility of indicators and text
     this.tripleJumpIndicator.visible = this.gameData.player.powers.tripleJump.active === true;
     this.tripleJumpText.visible = this.gameData.player.powers.tripleJump.active === true;
 
     this.lowerGravityIndicator.visible = this.gameData.player.powers.lowerGravity.active === true;
     this.lowerGravityText.visible = this.gameData.player.powers.lowerGravity.active === true;
 
+
+    // change text value
     let lowerGravityTimeLeft = this.gameData.gameOptions.powerLifetime - Math.abs(
       this.gameData.player.powers.lowerGravity.activationTime - this.gameData.timePlayed
     );
@@ -63,6 +82,7 @@ export default class PowersScene extends Phaser.Scene {
     this.lowerGravityText.setText(lowerGravityTimeLeft);
     this.tripleJumpText.setText(tripleJumpTimeLeft);
 
+    // change font
     if (lowerGravityTimeLeft <= 3) {
       this.lowerGravityText.setFont('TempestApache3DRed');
     } else {
