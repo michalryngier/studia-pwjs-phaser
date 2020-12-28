@@ -19,7 +19,7 @@ export default class GameScene extends Phaser.Scene {
             jumpForce: 400,
             playerStartPosition: 400,
             jumps: 2,
-            powerLifetime: 7
+            powerLifetime: 9
         }
         this.nextPlatformDistance = 0;
         this.score = 0;
@@ -31,6 +31,14 @@ export default class GameScene extends Phaser.Scene {
     create() {
         // console.log('GameScene');
         this.cameras.main.setBackgroundColor('#444444');
+
+        // audio
+        this.deadSound = this.sound.add('dead');
+        this.jumpSound = this.sound.add('jump');
+        this.flySound = this.sound.add('fly');
+        this.collectSound = this.sound.add('collect');
+        this.alert1Sound = this.sound.add('alert1');
+        this.alert2Sound = this.sound.add('alert2');
 
         // group with all active platforms.
         this.platformGroup = new PlatformGroup(this);
@@ -78,10 +86,13 @@ export default class GameScene extends Phaser.Scene {
         this.events.on('resume', () => {
             this.pauseButtonText.setVisible(true);
         })
+
+        this.scene.launch('PowersScene', { game: this });
     }
 
     update() {
         if (this.player.alive) {
+            this.player.flying();
             this.powerObjectService.spawnPowerObject();
             this.player.checkPowerLifetime();
             // game over
@@ -228,8 +239,15 @@ export default class GameScene extends Phaser.Scene {
             )
             this.toHighScoreText.setVisible(true);
         }
+        this.cameraShake();
+        this.deadSound.play();
         this.pauseButtonText.setVisible(false);
         this.game.scene.start('PauseGameScene');
+    }
+
+
+    cameraShake() {
+        this.cameras.main.shake(200, 0.2);
     }
 
     resetScene() {

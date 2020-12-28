@@ -11,6 +11,12 @@ export default class MenuScene extends Phaser.Scene
     create ()
     {
         this.cameras.main.setBackgroundColor('#444444');
+
+        let backgroundMusic = this.sound.add('stardust');
+        backgroundMusic.play({
+            loop: true
+        });
+
         this.title1 = TextHelper.createText(
           this,
           'TempestApache3DBlue',
@@ -62,6 +68,7 @@ export default class MenuScene extends Phaser.Scene
           })
           .on('pointerup', () => {
               document.getElementsByTagName("body")[0].style.cursor = "default";
+              backgroundMusic.stop();
               this.scene.stop();
               this.scene.start('GameScene');
           });

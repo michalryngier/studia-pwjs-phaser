@@ -2,12 +2,10 @@ import 'phaser';
 
 export default class SplashScene extends Phaser.Scene
 {
-    constructor ()
-    {
+    constructor () {
         super('SplashScene');
     }
-    create ()
-    {
+    create () {
         console.log('SplashScene');
         this.game.scene.start('MenuScene');
     }

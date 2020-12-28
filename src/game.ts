@@ -5,6 +5,7 @@ import SplashScene from './scenes/SplashScene'
 import MenuScene from './scenes/MenuScene'
 import GameScene from './scenes/GameScene'
 import PauseGameScene from './scenes/PauseGameScene'
+import PowersScene from './scenes/PowersScene'
 import Stats from 'stats-js/src/Stats'
 
 let game: Phaser.Game;
@@ -26,6 +27,7 @@ class Game extends Phaser.Game
         this.scene.add('MenuScene', MenuScene, false);
         this.scene.add('GameState', GameScene, false);
         this.scene.add('PauseGameScene', PauseGameScene, false);
+        this.scene.add('PowersScene', PowersScene, false);
     }
     private setupStatsJS()
     {

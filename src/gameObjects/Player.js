@@ -53,10 +53,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.powers.tripleJump.availableJumps = 1;
       }
       this.setVelocityY(this.game.gameOptions.jumpForce * -1);
+      this.game.jumpSound.play();
       this.playerJumps++;
     } else if (this.powers.tripleJump.active && this.powers.tripleJump.availableJumps === 1) {
-        this.setVelocityY(this.game.gameOptions.jumpForce * -1);
-        this.powers.tripleJump.availableJumps = 0
+      this.game.jumpSound.play();
+      this.setVelocityY(this.game.gameOptions.jumpForce * -1);
+      this.powers.tripleJump.availableJumps = 0
+    }
+  }
+
+  flying() {
+    if (this.body.touching.down) {
+      this.game.flySound.play();
+    } else {
+      this.game.flySound.stop();
     }
   }
 
@@ -77,11 +87,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.powers.lowerGravity.active
         && this.game.timePlayed - this.powers.lowerGravity.activationTime > this.game.gameOptions.powerLifetime
       ) {
+        this.game.alert1Sound.play();
         this.resetPower(this.powers.lowerGravity);
       } else if (
         this.powers.tripleJump.active
         && this.game.timePlayed - this.powers.tripleJump.activationTime > this.game.gameOptions.powerLifetime
       ) {
+        this.game.alert2Sound.play();
         this.resetPower(this.powers.tripleJump);
       }
     }

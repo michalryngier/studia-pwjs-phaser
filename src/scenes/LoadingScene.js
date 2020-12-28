@@ -2,15 +2,41 @@ import 'phaser';
 
 export default class LoadingScene extends Phaser.Scene
 {
-    constructor ()
-    {
+    constructor () {
         super('LoadingScene');
     }
     preload() {
+        // images
         this.load.image('platform', './assets/images/platform.png');
         this.load.image('player', './assets/images/player.png');
         this.load.image('lowerGravityIcon', './assets/images/lowerGravityIcon.png');
         this.load.image('tripleJumpIcon', './assets/images/tripleJumpIcon.png');
+        this.load.image('lowerGravityIndicator', './assets/images/lowerGravityIndicator.png');
+        this.load.image('tripleJumpIndicator', './assets/images/tripleJumpIndicator.png');
+
+        // audio
+        this.load.audio('stardust', [
+            './assets/audio/mp3/Stardust.mp3'
+        ]);
+        this.load.audio('dead', [
+            './assets/audio/mp3/dead.mp3'
+        ]);
+        this.load.audio('jump', [
+            './assets/audio/mp3/jump.mp3'
+        ]);
+        this.load.audio('fly', [
+            './assets/audio/mp3/fly.mp3'
+        ]);
+        this.load.audio('alert1', [
+            './assets/audio/mp3/alert1.mp3'
+        ]);
+        this.load.audio('alert2', [
+            './assets/audio/mp3/alert2.mp3',
+            './assets/audio/ogg/alert2.ogg'
+        ]);
+        this.load.audio('collect', [
+            './assets/audio/mp3/collect.mp3',
+        ]);
 
         // BITMAP FONTS
 
@@ -88,9 +114,5 @@ export default class LoadingScene extends Phaser.Scene
     {
         console.log('LoadingScene');
         this.game.scene.start('SplashScene');
-    }
-
-    onLoadProgress(progress) {
-        console.debug(`${Math.round(progress * 100)}%`);
     }
 }

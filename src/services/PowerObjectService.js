@@ -55,6 +55,7 @@ export default class PowerObjectService {
         player.addLowerGravityPower();
         break;
     }
+    this.game.collectSound.play();
     power.destroy();;
   }
 }
