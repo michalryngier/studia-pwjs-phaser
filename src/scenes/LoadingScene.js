@@ -7,7 +7,10 @@ export default class LoadingScene extends Phaser.Scene
     }
     preload() {
         // images
-        this.load.image('platform', './assets/images/platform.png');
+        this.load.atlas(
+          'platform', './assets/images/platformSpritesheet.png',
+          './assets/images/platformSpritesheet.json'
+        );
         this.load.image('player', './assets/images/player.png');
         this.load.image('lowerGravityIcon', './assets/images/lowerGravityIcon.png');
         this.load.image('tripleJumpIcon', './assets/images/tripleJumpIcon.png');

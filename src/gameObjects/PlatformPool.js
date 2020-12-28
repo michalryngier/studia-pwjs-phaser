@@ -23,7 +23,7 @@ export default class PlatformPool extends Phaser.GameObjects.Group  {
       platform.visible = true;
       this.remove(platform);
     } else {
-      platform = new Platform(this.game, posX, this.game.game.config.height * 0.8, "platform");
+      platform = new Platform(this.game, posX, this.game.game.config.height * 1.1, 'platform', this.game.platformKey);
       platform.setVelocityX(this.game.multiplier * this.game.gameOptions.platformStartSpeed * -1);
       this.game.platformGroup.add(platform);
     }

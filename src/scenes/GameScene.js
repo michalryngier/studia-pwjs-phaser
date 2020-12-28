@@ -40,6 +40,15 @@ export default class GameScene extends Phaser.Scene {
         this.alert1Sound = this.sound.add('alert1');
         this.alert2Sound = this.sound.add('alert2');
 
+        // random platform color for each game
+        let platformKeys = [
+          'platformRed',
+          'platformBlue',
+          'platformGreen',
+          'platformRed',
+        ];
+
+        this.platformKey = platformKeys[Math.floor(Math.random() * 3)];
         // group with all active platforms.
         this.platformGroup = new PlatformGroup(this);
 

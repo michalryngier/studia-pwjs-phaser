@@ -27,11 +27,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53577fc7-14c4-4587-a395-249c5b8db0b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/platform.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/platformSpritesheet.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/platformSpritesheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameObjects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameObjects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lowerGravityIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/lowerGravityIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/platform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tripleJumpIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tripleJumpIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameObjects/PlatformPool.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameObjects/PlatformPool.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/LoadingScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LoadingScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/PowersScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/PowersScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +100,7 @@
       <workItem from="1608576318750" duration="480000" />
       <workItem from="1608709219108" duration="34977000" />
       <workItem from="1609072685191" duration="21364000" />
-      <workItem from="1609150470634" duration="14174000" />
+      <workItem from="1609150470634" duration="22856000" />
     </task>
     <task id="LOCAL-00001" summary="feat: gameplay skeleton">
       <created>1608496954210</created>
@@ -146,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609162129955</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: power indicators improvements">
+      <created>1609165029635</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609165029635</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +196,8 @@
     <MESSAGE value="feat: pause, new fonts, restart, menu" />
     <MESSAGE value="feat: super powers" />
     <MESSAGE value="feat: powers time indicators" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: powers time indicators" />
+    <MESSAGE value="feat: power indicators improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: power indicators improvements" />
   </component>
   <component name="WindowStateProjectService">
     <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609164384934">
@@ -215,10 +228,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="214" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138407143" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609162132079">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609165031101">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609162132079" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609165031101" />
     <state x="614" y="160" width="578" height="592" key="find.popup" timestamp="1609093996086">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
