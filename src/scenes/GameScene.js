@@ -13,7 +13,7 @@ export default class GameScene extends Phaser.Scene {
         // global game options
         this.gameOptions = {
             platformStartSpeed: 350,
-            spawnRange: [150, 400],
+            spawnRange: [200, 450],
             platformSizeRange: [100, 300],
             playerGravity: 900,
             jumpForce: 400,
@@ -41,14 +41,10 @@ export default class GameScene extends Phaser.Scene {
         this.alert2Sound = this.sound.add('alert2');
 
         // random platform color for each game
-        let platformKeys = [
-          'platformRed',
-          'platformBlue',
-          'platformGreen',
-          'platformRed',
-        ];
+        let platformTextures = this.textures.get('platform');
+        let frames = platformTextures.getFrameNames();
+        this.platformKey = Phaser.Utils.Array.GetRandom(frames);
 
-        this.platformKey = platformKeys[Math.floor(Math.random() * 3)];
         // group with all active platforms.
         this.platformGroup = new PlatformGroup(this);
 
@@ -63,9 +59,12 @@ export default class GameScene extends Phaser.Scene {
           this,
           this.gameOptions.playerStartPosition,
           this.game.config.height / 2,
-          'player'
+          'player',
+          'ride'
         );
         this.player.setGravityY(this.gameOptions.playerGravity);
+        this.player.displayWidth = this.game.config.height * 0.2;
+        this.player.displayHeight = this.game.config.height * 0.2;
         this.player.tryJump();
 
         // setting collisions between the player and the platform group

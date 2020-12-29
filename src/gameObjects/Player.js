@@ -1,6 +1,6 @@
 export default class Player extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene, x, y, texture) {
-    super(scene, x, y, texture);
+  constructor(scene, x, y, texture, frame) {
+    super(scene, x, y, texture, frame);
     scene.add.existing(this);
     scene.physics.add.existing(this);
     this.setGravityY(1000);
@@ -53,10 +53,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.powers.tripleJump.availableJumps = 1;
       }
       this.setVelocityY(this.game.gameOptions.jumpForce * -1);
+      this.setFrame('jump');
       this.game.jumpSound.play();
       this.playerJumps++;
     } else if (this.powers.tripleJump.active && this.powers.tripleJump.availableJumps === 1) {
       this.game.jumpSound.play();
+      this.setFrame('jump');
       this.setVelocityY(this.game.gameOptions.jumpForce * -1);
       this.powers.tripleJump.availableJumps = 0
     }
@@ -65,7 +67,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   flying() {
     if (this.body.touching.down) {
       this.game.flySound.play();
+      this.setFrame('ride');
     } else {
+      if (this.body.velocity.y > 0) {
+        this.setFrame('fall');
+      }
       this.game.flySound.stop();
     }
   }
