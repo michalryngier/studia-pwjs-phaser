@@ -40,6 +40,10 @@ export default class GameScene extends Phaser.Scene {
         this.alert1Sound = this.sound.add('alert1');
         this.alert2Sound = this.sound.add('alert2');
 
+        this.flySound.play({
+            loop: true
+        });
+
         // random platform color for each game
         let platformTextures = this.textures.get('platform');
         let frames = platformTextures.getFrameNames();

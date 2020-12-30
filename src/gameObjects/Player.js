@@ -66,13 +66,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   flying() {
     if (this.body.touching.down) {
-      this.game.flySound.play();
       this.setFrame('ride');
+      this.game.flySound.resume();
     } else {
       if (this.body.velocity.y > 0) {
         this.setFrame('fall');
       }
-      this.game.flySound.stop();
+      this.game.flySound.pause();
     }
   }
 

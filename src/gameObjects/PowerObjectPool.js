@@ -26,7 +26,7 @@ export default class PowerObjectPool extends Phaser.GameObjects.Group {
   createTripleJumpPower() {
     let tripleJump = this.game.physics.add.sprite(
       this.game.game.config.width + 100,
-      this.game.game.config.height * 0.3,
+      this.game.game.config.height * 0.4,
       'tripleJumpIcon'
     );
     tripleJump.setVelocityX(this.game.multiplier * this.game.gameOptions.platformStartSpeed * -1);
@@ -38,7 +38,7 @@ export default class PowerObjectPool extends Phaser.GameObjects.Group {
   createLowerGravityPower() {
     let lowerGravity = this.game.physics.add.sprite(
       this.game.game.config.width + 100,
-      this.game.game.config.height * 0.3,
+      this.game.game.config.height * 0.4,
       'lowerGravityIcon'
     );
     lowerGravity.setVelocityX(this.game.multiplier * this.game.gameOptions.platformStartSpeed * -1);

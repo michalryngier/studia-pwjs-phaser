@@ -20,6 +20,7 @@ export default class LoadingScene extends Phaser.Scene
         this.load.image('lowerGravityIndicator', './assets/images/lowerGravityIndicator.png');
         this.load.image('tripleJumpIndicator', './assets/images/tripleJumpIndicator.png');
         this.load.image('tripleJumpIndicator', './assets/images/tripleJumpIndicator.png');
+        this.load.image('background', './assets/images/background.png');
 
         // audio
         this.load.audio('stardust', [
