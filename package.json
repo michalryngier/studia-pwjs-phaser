@@ -1,10 +1,10 @@
 {
-  "name": "phaser3-boilerplate",
-  "version": "0.0.1",
+  "name": "night-city-rider",
+  "version": "1.0.0",
   "scripts": {
     "start": "rollup --watch --config rollup.config.js"
   },
-  "author": "Arkadiusz Nowakowski",
+  "author": "Michal Ryngier",
   "license": "MIT",
   "dependencies": {
     "@rollup/plugin-replace": "^2.3.4",

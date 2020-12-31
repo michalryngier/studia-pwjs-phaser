@@ -121,6 +121,6 @@ export default class LoadingScene extends Phaser.Scene
     create ()
     {
         console.log('LoadingScene');
-        this.game.scene.start('SplashScene');
+        this.game.scene.start('MenuScene');
     }
 }

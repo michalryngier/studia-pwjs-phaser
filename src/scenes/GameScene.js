@@ -6,6 +6,7 @@ import highScoreService from '../services/HighScoreService';
 import TextHelper from "../helpers/TextHelper";
 import PowerObjectService from "../services/PowerObjectService";
 import PowerObjectPool from "../gameObjects/PowerObjectPool";
+import BackgroundPool from "../gameObjects/BackgroundPool";
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -54,6 +55,7 @@ export default class GameScene extends Phaser.Scene {
 
         // pool
         this.platformPool = new PlatformPool(this);
+        this.backgroundPool = new BackgroundPool(this);
 
         // adding a platform to the game, the arguments are platform width and x position
         this.platformPool.addPlatform(this.game.config.width, this.game.config.width / 2);
@@ -66,6 +68,7 @@ export default class GameScene extends Phaser.Scene {
           'player',
           'ride'
         );
+        this.player.setDepth(0.5);
         this.player.setGravityY(this.gameOptions.playerGravity);
         this.player.displayWidth = this.game.config.height * 0.2;
         this.player.displayHeight = this.game.config.height * 0.2;
@@ -104,7 +107,16 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update() {
+        if (
+          this.backgroundPool.getLength() === 0
+          || this.backgroundPool.children['entries'][this.backgroundPool.getLength() - 1].body.x <= -2000
+        ) {
+            this.backgroundPool.addBackground();
+        }
         if (this.player.alive) {
+            this.backgroundPool.setVelocity(
+              (this.multiplier * this.gameOptions.platformStartSpeed * -1) / 2
+            );
             this.player.flying();
             this.powerObjectService.spawnPowerObject();
             this.player.checkPowerLifetime();

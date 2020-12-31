@@ -1,7 +1,6 @@
 import 'phaser';
 import BootScene from './scenes/BootScene'
 import LoadingScene from './scenes/LoadingScene'
-import SplashScene from './scenes/SplashScene'
 import MenuScene from './scenes/MenuScene'
 import GameScene from './scenes/GameScene'
 import PauseGameScene from './scenes/PauseGameScene'
@@ -25,7 +24,6 @@ class Game extends Phaser.Game
         }
         this.scene.add('BootScene', BootScene, true);
         this.scene.add('LoadingScene', LoadingScene, false);
-        this.scene.add('SplashScene', SplashScene, false);
         this.scene.add('MenuScene', MenuScene, false);
         this.scene.add('GameState', GameScene, false);
         this.scene.add('PauseGameScene', PauseGameScene, false);
