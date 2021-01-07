@@ -27,13 +27,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53577fc7-14c4-4587-a395-249c5b8db0b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gameObjects/BackgroundPool.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LoadingScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LoadingScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/SplashScene.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +62,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="//wsl$/Ubuntu/home/michal/workspace/holidays-ho-managment-app-front" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\Programming\studia\games\phaser3-boilerplate\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -99,7 +93,8 @@
       <workItem from="1609072685191" duration="21364000" />
       <workItem from="1609150470634" duration="23390000" />
       <workItem from="1609228459661" duration="6104000" />
-      <workItem from="1609322858554" duration="10784000" />
+      <workItem from="1609322858554" duration="11327000" />
+      <workItem from="1609748879309" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="feat: gameplay skeleton">
       <created>1608496954210</created>
@@ -178,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609329026337</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: infinite background">
+      <created>1609410662048</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609410662048</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +222,8 @@
     <MESSAGE value="feat: graphics" />
     <MESSAGE value="feat: player animation" />
     <MESSAGE value="feat: credits and background" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: credits and background" />
+    <MESSAGE value="feat: infinite background" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: infinite background" />
   </component>
   <component name="WindowStateProjectService">
     <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609164384934">
@@ -232,10 +235,11 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608721659190" />
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1609329038710" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1608546707687">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="2469" y="172" key="FileChooserDialogImpl" timestamp="1609748925347">
+      <screen x="1920" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1608546707687" />
+    <state x="2469" y="172" key="FileChooserDialogImpl/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@1920.0.1536.834" timestamp="1609748925347" />
     <state width="1515" height="214" key="GridCell.Tab.0.bottom" timestamp="1606138407143">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -252,11 +256,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="214" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1606138407143" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609329028203">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609410663164">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/-1920.0.1536.834/0.0.1536.834/1920.0.1536.834@0.0.1536.834" timestamp="1609240448882" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1609329028203" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1609410663164" />
     <state x="614" y="160" width="578" height="592" key="find.popup" timestamp="1609409905181">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
